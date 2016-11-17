@@ -5,5 +5,3 @@ This app is a book selling app that allows users to buy books from nearby seller
 The app uses some geo location and geo tagging algorithms to find the best sellers.
 
 for more information please contact me.
-
-kirandasika30@gmail.com
