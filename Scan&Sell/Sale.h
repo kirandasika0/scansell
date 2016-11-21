@@ -29,7 +29,7 @@
 -(double)haversineMI;
 -(BOOL) compareTo:(Sale *)that;
 -(instancetype)initSaleWithObjectId:(NSString *)objectId;
-
+-(void) placeBidWithBiddingPrice:(NSInteger)bidPrice andWithCompletionHandler:(void(^)(BOOL success))completionHandler;
 
 //Class Methods
 +(void) getSaleImagesWithId:(NSString *)saleIdIn andWithCompletionHandler:(void(^)(NSArray *images, BOOL success))completionHandler;
@@ -37,4 +37,5 @@
 // CONSTANTS
 extern NSString * const kGetSaleDetailsEndpoint;
 extern NSString * const kGetSaleImagesEndpoint;
+extern NSString * const kPlaceBidEndpoint;
 @end

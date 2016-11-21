@@ -14,6 +14,7 @@
 
 NSString * const kGetSaleDetailsEndpoint = @"https://scansell.herokuapp.com/sale/get_sale_details/";
 NSString * const kGetSaleImagesEndpoint = @"https://scansell.herokuapp.com/sale/get_sale_images/";
+NSString * const kPlaceBidEndpoint = @"https://scansell.herpkuapp.com/sale/place_bid/";
 
 @implementation Sale
 -(id)initWithUsername:(NSString *)username andUserId:(NSString *)userId{
@@ -115,5 +116,18 @@ NSString * const kGetSaleImagesEndpoint = @"https://scansell.herokuapp.com/sale/
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         completionHandler(nil, false);
     }];
+}
+
+-(void)placeBidWithBiddingPrice:(NSInteger)bidPrice andWithCompletionHandler:(void (^)(BOOL))completionHandler{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *requestPayload = @{@"sale_id": self.saleId,
+                                     @"bid_price": [NSString stringWithFormat:@"%ld", (long)bidPrice],
+                                     @"user_id": [[User sharedInstance] userId]};
+    [manager POST:kPlaceBidEndpoint parameters:requestPayload success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        completionHandler(true);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completionHandler(false);
+    }];
+                                     
 }
 @end
