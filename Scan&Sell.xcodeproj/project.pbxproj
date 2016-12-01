@@ -301,6 +301,7 @@
 		9F28307C1B3BB73A00F67237 /* Scan&Sell */ = {
 			isa = PBXGroup;
 			children = (
+				9F99F0AC1DE9405700E5E9CA /* XIBS */,
 				9F8BB7651DAFE45C00E67A00 /* User */,
 				9F160EA91D030F8E00B8E4C2 /* Search */,
 				9F337DC01C6D65C3002F2CBC /* Time Ago */,
@@ -496,6 +497,13 @@
 				9F8BB7671DAFE5BF00E67A00 /* User.m */,
 			);
 			name = User;
+			sourceTree = "<group>";
+		};
+		9F99F0AC1DE9405700E5E9CA /* XIBS */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = XIBS;
 			sourceTree = "<group>";
 		};
 		9F9A3DF01C1E2D7600A1F5AB /* Location */ = {
