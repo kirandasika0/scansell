@@ -90,6 +90,11 @@ NSString * const kHottestDealsEndpoint = @"https://scansell.herokuapp.com/sale/h
     return geoPoint;
 }
 
+-(NSString *)bidStructureKey{
+    NSString *StructureKey = [NSString stringWithFormat:@"%@_bidStructure", self.userId];
+    return StructureKey;
+}
+
 -(BOOL) isActive {
     return active;
 }

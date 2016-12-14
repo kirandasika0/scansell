@@ -14,14 +14,25 @@
 
 NSString * const kGetSaleDetailsEndpoint = @"https://scansell.herokuapp.com/sale/get_sale_details/";
 NSString * const kGetSaleImagesEndpoint = @"https://scansell.herokuapp.com/sale/get_sale_images/";
-NSString * const kPlaceBidEndpoint = @"https://scansell.herpkuapp.com/sale/place_bid/";
+NSString * const kPlaceBidEndpoint = @"https://scansell.herokuapp.com/sale/place_bid/";
+NSString * const kGetBidStatsEndpoint = @"https://scansell.herokuapp.com/sale/bid_stats/";
 
 @implementation Sale
+{
+    NSUserDefaults *userDefaults;
+}
 -(id)initWithUsername:(NSString *)username andUserId:(NSString *)userId{
     self = [super init];
     if (self) {
         self.sellerUsename = username;
         self.sellerId = userId;
+        userDefaults = [NSUserDefaults standardUserDefaults];
+        if ([userDefaults objectForKey:[[User sharedInstance] bidStructureKey]] != nil) {
+            self.bidStructure = [NSMutableDictionary dictionaryWithDictionary:[userDefaults objectForKey:[[User sharedInstance] bidStructureKey]]];
+        }
+        else{
+            self.bidStructure = [[NSMutableDictionary alloc] init];
+        }
     }
     
     return self;
@@ -124,10 +135,46 @@ NSString * const kPlaceBidEndpoint = @"https://scansell.herpkuapp.com/sale/place
                                      @"bid_price": [NSString stringWithFormat:@"%ld", (long)bidPrice],
                                      @"user_id": [[User sharedInstance] userId]};
     [manager POST:kPlaceBidEndpoint parameters:requestPayload success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self updateBidStats];
+        NSLog(@"bid places");
         completionHandler(true);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         completionHandler(false);
+        NSLog(@"%@", operation.responseString);
     }];
                                      
+}
+
+-(BOOL) userHasBid{
+    for (id key in self.bidStructure) {
+        if (self.saleId == key) {
+            return true;
+        }
+    }
+    return false;
+}
+
+-(void)getBidStatsWithCompletionHandler:(void (^)(BOOL, NSDictionary *))completionHandler{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *requestPayload = @{@"sale_id": self.saleId
+                                     };
+    [manager POST:kGetBidStatsEndpoint parameters:requestPayload success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if (responseObject[@"error"]) {
+            completionHandler(false, nil);
+        }
+        NSDictionary * responseDictionary = [[NSDictionary alloc] initWithDictionary:responseObject];
+        completionHandler(true, responseDictionary);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completionHandler(false, nil);
+    }];
+    
+}
+
+
+-(BOOL) updateBidStats{
+    [self.bidStructure setObject:self.saleId forKey:[NSString stringWithFormat:@"%d", true]];
+    //saving the hash table to the cache
+    [userDefaults setObject:self.bidStructure forKey:[[User sharedInstance] bidStructureKey]];
+    return true;
 }
 @end

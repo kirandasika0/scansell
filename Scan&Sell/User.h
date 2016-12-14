@@ -41,6 +41,7 @@ extern NSString * const kHottestDealsEndpoint;
 -(NSString *)redisKey;
 -(NSString *)currentLocale;
 -(CLLocationCoordinate2D)geoPoint;
+-(NSString *)bidStructureKey;
 -(BOOL) isActive;
 
 //Setter

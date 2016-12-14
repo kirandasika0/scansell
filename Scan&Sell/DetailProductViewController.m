@@ -44,6 +44,8 @@
            });
         }
     });
+    [self.view reloadInputViews];
+    [self updateBiddingViews];
     
     [self.buyButton setTitle:[NSString stringWithFormat:@"Buy Now for $%@", self.sale.price] forState:UIControlStateNormal];
 }
@@ -73,6 +75,39 @@
 
 - (IBAction)showBookImages:(id)sender {
     [self performSegueWithIdentifier:@"showBookImage" sender:nil];
+}
+
+- (IBAction)placeBid:(id)sender {
+    //Send a bid request to the server
+    NSInteger bidPrice = [self.bidPriceTextField.text integerValue];
+    if (bidPrice > 0) {
+        [self.sale placeBidWithBiddingPrice:bidPrice andWithCompletionHandler:^(BOOL success) {
+            if (success) {
+                NSLog(@"Bid placed");
+            }
+        }];
+    }
+    else{
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please enter a bid price that is greater than zero." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alertView show];
+    }
+}
+
+-(void) updateBiddingViews{
+    
+    if ([self.sale userHasBid] == true) {
+        self.placeBidButton.enabled = false;
+        self.bidPriceTextField.enabled = false;
+    }
+    
+    //Setting placeholder text
+    [self.sale getBidStatsWithCompletionHandler:^(BOOL success, NSDictionary *responseDictionary) {
+        if (success == true) {
+            NSString *placeHolderString = [NSString stringWithFormat:@"Current highest bid - $%@", responseDictionary[@"highest_bidder"][@"bid_price"]];
+            self.bidPriceTextField.placeholder = placeHolderString;
+        }
+    }];
+    
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"showBookImage"]) {

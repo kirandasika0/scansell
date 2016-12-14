@@ -246,13 +246,13 @@
         }
         
         //Go and get the hottest deals
-        [[User sharedInstance] getHottestDealWithCompletionHandler:^(Sale *hottestSale, BOOL success) {
-            if (success == true) {
-                HottestDealViewController *hdViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"hottestDeals"];
-                hdViewController.hottestSale = hottestSale;
-                [self presentViewController:hdViewController animated:YES completion:nil];
-            }
-        }];
+//        [[User sharedInstance] getHottestDealWithCompletionHandler:^(Sale *hottestSale, BOOL success) {
+//            if (success == true) {
+//                HottestDealViewController *hdViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"hottestDeals"];
+//                hdViewController.hottestSale = hottestSale;
+//                [self presentViewController:hdViewController animated:YES completion:nil];
+//            }
+//        }];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%@", operation.responseString);

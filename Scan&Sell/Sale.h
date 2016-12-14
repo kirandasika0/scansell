@@ -22,14 +22,17 @@
 @property (nonatomic, strong) NSString *locationString;
 @property (nonatomic, strong) NSDictionary *bookDetails;
 @property (nonatomic, strong) NSArray *imagesNames;
+@property (nonatomic, strong) NSMutableDictionary *bidStructure;
 
 //Methods
 -(id)initWithUsername:(NSString *)username andUserId:(NSString*)userId;
 -(double)harversineKM;
 -(double)haversineMI;
+-(BOOL) userHasBid;
 -(BOOL) compareTo:(Sale *)that;
 -(instancetype)initSaleWithObjectId:(NSString *)objectId;
 -(void) placeBidWithBiddingPrice:(NSInteger)bidPrice andWithCompletionHandler:(void(^)(BOOL success))completionHandler;
+-(void) getBidStatsWithCompletionHandler:(void(^)(BOOL success,NSDictionary *responseDictionary))completionHandler;
 
 //Class Methods
 +(void) getSaleImagesWithId:(NSString *)saleIdIn andWithCompletionHandler:(void(^)(NSArray *images, BOOL success))completionHandler;
@@ -38,4 +41,5 @@
 extern NSString * const kGetSaleDetailsEndpoint;
 extern NSString * const kGetSaleImagesEndpoint;
 extern NSString * const kPlaceBidEndpoint;
+extern NSString * const kGetBidStatsEndpoint;
 @end

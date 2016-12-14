@@ -22,9 +22,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *productNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activtityInd;
+@property (weak, nonatomic) IBOutlet UITextField *bidPriceTextField;
+@property (weak, nonatomic) IBOutlet UIButton *placeBidButton;
 
 - (IBAction)buy:(id)sender;
 - (IBAction)showBookImages:(id)sender;
+- (IBAction)placeBid:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIButton *buyButton;
 @end
