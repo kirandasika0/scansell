@@ -11,6 +11,7 @@
 #import "AFNetworking.h"
 #import "TypeOneViewController.h"
 #import "TypeTwoViewController.h"
+#import "User.h"
 
 @interface NotificationViewController ()
 @end
@@ -30,7 +31,7 @@
     //never hide the tab bar
     self.tabBarController.tabBar.hidden = NO;
     //setting the current user
-    self.currentUser = [PFUser currentUser];
+    //self.currentUser = [PFUser currentUser];
     
     //fething all notifications
     [self fetchNotification];
@@ -113,9 +114,8 @@
 }
 
 -(void)fetchNotification{
-    PFUser *currentUser = [PFUser currentUser];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSDictionary *parameters = @{@"user_id": currentUser.objectId};
+    NSDictionary *parameters = @{@"user_id": [[User sharedInstance] userId]};
     
     [manager GET:@"https://scansell.herokuapp.com/sale/get_notifications/" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //If no notifications are there this alert view will be displayed

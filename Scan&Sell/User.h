@@ -32,6 +32,7 @@ extern NSString * const kSignUpFailure;
 extern NSString * const kInitialLocationConfirmation;
 extern NSString * const kSliderFeedEndpoint;
 extern NSString * const kHottestDealsEndpoint;
+extern NSString * const kGetMySalesEndpoint;
 
 //Getters
 -(NSString *)userId;
@@ -53,4 +54,5 @@ extern NSString * const kHottestDealsEndpoint;
 -(void) signUpUserWithPayload:(NSDictionary *)requestPayload;
 -(BOOL) logout;
 -(void) getHottestDealWithCompletionHandler:(void(^)(Sale *hottestSale, BOOL success))completionHandler;
+-(void) getMySalesWithCompletionHandler:(void(^)(BOOL success, NSArray *sales))completionHandler;
 @end

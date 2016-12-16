@@ -9,6 +9,7 @@
 #import "DetailProductViewController.h"
 #import "AFNetworking.h"
 #import "BookImageViewController.h"
+#import "User.h"
 
 @implementation DetailProductViewController
 -(void)viewDidLoad{
@@ -55,7 +56,7 @@
         [self.buyButton setEnabled:NO];
     }
     NSDictionary *notifDict = @{@"notif_type": @1, @"seller_id": self.sale.sellerId, @"seller_username": self.sale.sellerUsename,
-                                @"buyer_id":self.currentUser.objectId, @"buyer_username": self.currentUser.username,
+                                @"buyer_id": [[User sharedInstance] userId], @"buyer_username": [[User sharedInstance] username],
                                 @"sale_id":self.sale.saleId};
     //creating manager
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];

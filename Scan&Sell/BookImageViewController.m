@@ -98,7 +98,7 @@
                 if ([self.activityInd isAnimating]) {
                     [self.activityInd stopAnimating];
                 }
-                if ([self.activityInd isHidden]) {
+                if (![self.activityInd isHidden]) {
                     [self.activityInd setHidden:YES];
                 }
             });

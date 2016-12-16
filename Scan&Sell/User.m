@@ -19,6 +19,7 @@ NSString * const kSignUpFailure = @"signUpFailure";
 NSString * const kInitialLocationConfirmation = @"initialLocationLocationConfirmation";
 NSString * const kSliderFeedEndpoint = @"http://scansell.herokuapp.com/sale/slider_feed/";
 NSString * const kHottestDealsEndpoint = @"https://scansell.herokuapp.com/sale/hot_deals/";
+NSString * const kGetMySalesEndpoint = @"http://scansell.herokuapp.com/users_b/my_sales/";
 
 @implementation User
 -(instancetype)initWithPropertyList:(NSString *)pListPath {
@@ -243,5 +244,30 @@ NSString * const kHottestDealsEndpoint = @"https://scansell.herokuapp.com/sale/h
         NSLog(@"Error: %@", operation.responseString);
         completionHandler(nil, false);
     }];
+}
+
+-(void) getMySalesWithCompletionHandler:(void (^)(BOOL, NSArray *))completionHandler{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *requestPayload = @{@"user_id": userId
+                                     };
+    
+    [manager POST:kGetMySalesEndpoint parameters:requestPayload success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if (responseObject[@"error"]){
+            completionHandler(false, nil);
+        }
+        
+        
+        NSMutableArray *mySales = [[NSMutableArray alloc] init];
+        
+        for (NSDictionary *sale in responseObject) {
+            Sale *mySale = [[Sale alloc] initSaleWithObjectId:sale[@"pk"]];
+            
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error");
+        completionHandler(false, nil);
+    }];
+    
 }
 @end
