@@ -14,6 +14,21 @@
 @implementation DetailProductViewController
 -(void)viewDidLoad{
     [super viewDidLoad];
+    UITapGestureRecognizer *tapGesture1 = [[UITapGestureRecognizer alloc] initWithTarget:self  action:@selector(tapGesture)];
+    
+    tapGesture1.numberOfTapsRequired = 1;
+    
+    [tapGesture1 setDelegate:self];
+    
+    [self.bookCoverImageView addGestureRecognizer:tapGesture1];
+}
+
+-(void)tapGesture{
+    [self performSegueWithIdentifier:@"showBookImage" sender:nil];
+}
+
+-(BOOL) prefersStatusBarHidden{
+    return YES;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -92,6 +107,10 @@
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please enter a bid price that is greater than zero." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alertView show];
     }
+}
+
+- (IBAction)close:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void) updateBiddingViews{

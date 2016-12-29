@@ -73,6 +73,8 @@
 		9FD84F281C0292460036315B /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD84F271C0292460036315B /* Parse.framework */; };
 		9FD84F2A1C02925B0036315B /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD84F291C02925B0036315B /* Bolts.framework */; };
 		9FDBC0D11E14DC3000A35116 /* FlatButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FDBC0D01E14DC3000A35116 /* FlatButton.m */; };
+		9FDBC0D51E15521800A35116 /* DetailPresentingAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FDBC0D41E15521800A35116 /* DetailPresentingAnimator.m */; };
+		9FDBC0DA1E15541F00A35116 /* DetailDismissingAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FDBC0D91E15541F00A35116 /* DetailDismissingAnimator.m */; };
 		9FDD08771C4546FF005DB7FB /* TypeOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FDD08761C4546FF005DB7FB /* TypeOneViewController.m */; };
 		9FDD42011B3CF5F80026FBF8 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FDD42001B3CF5F80026FBF8 /* SignupViewController.m */; };
 		9FECBEC71CFA1B3E00F6D0C7 /* GeoFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FECBEC61CFA1B3E00F6D0C7 /* GeoFeed.m */; };
@@ -212,6 +214,10 @@
 		9FD84F291C02925B0036315B /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		9FDBC0CF1E14DC3000A35116 /* FlatButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatButton.h; sourceTree = "<group>"; };
 		9FDBC0D01E14DC3000A35116 /* FlatButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlatButton.m; sourceTree = "<group>"; };
+		9FDBC0D31E15521800A35116 /* DetailPresentingAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailPresentingAnimator.h; sourceTree = "<group>"; };
+		9FDBC0D41E15521800A35116 /* DetailPresentingAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailPresentingAnimator.m; sourceTree = "<group>"; };
+		9FDBC0D81E15541F00A35116 /* DetailDismissingAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailDismissingAnimator.h; sourceTree = "<group>"; };
+		9FDBC0D91E15541F00A35116 /* DetailDismissingAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailDismissingAnimator.m; sourceTree = "<group>"; };
 		9FDD08751C4546FF005DB7FB /* TypeOneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeOneViewController.h; sourceTree = "<group>"; };
 		9FDD08761C4546FF005DB7FB /* TypeOneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypeOneViewController.m; sourceTree = "<group>"; };
 		9FDD41FF1B3CF5F80026FBF8 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
@@ -459,11 +465,14 @@
 		9F50EE7E1B3D55E200267351 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				9FDBC0D21E15513300A35116 /* Animators */,
 				9F0A10331D0171E70078CEA5 /* Select feed */,
 				9FB7410B1CFD678B00F00954 /* Geo Feed */,
 				9F2830C31B3BBA4E00F67237 /* HomeViewController.m */,
+				9F2830C21B3BBA4E00F67237 /* HomeViewController.h */,
 				9F71CDFB1DCD369D00438A8D /* HottestDealViewController.h */,
 				9F71CDFC1DCD369D00438A8D /* HottestDealViewController.m */,
+				9F50EE7F1B3D560100267351 /* HomeTableViewCell.h */,
 				9F50EE801B3D560100267351 /* HomeTableViewCell.m */,
 				9F0A3DF01B3D663200EEFE1F /* DetailProductViewController.h */,
 				9F0A3DF11B3D663200EEFE1F /* DetailProductViewController.m */,
@@ -554,8 +563,6 @@
 		9FB7410B1CFD678B00F00954 /* Geo Feed */ = {
 			isa = PBXGroup;
 			children = (
-				9F2830C21B3BBA4E00F67237 /* HomeViewController.h */,
-				9F50EE7F1B3D560100267351 /* HomeTableViewCell.h */,
 				9FECBEC51CFA1B3E00F6D0C7 /* GeoFeed.h */,
 				9FECBEC61CFA1B3E00F6D0C7 /* GeoFeed.m */,
 			);
@@ -621,6 +628,33 @@
 				9FDBC0D01E14DC3000A35116 /* FlatButton.m */,
 			);
 			name = FlatButton;
+			sourceTree = "<group>";
+		};
+		9FDBC0D21E15513300A35116 /* Animators */ = {
+			isa = PBXGroup;
+			children = (
+				9FDBC0D71E15540C00A35116 /* Dismissing */,
+				9FDBC0D61E1553FF00A35116 /* Presenting */,
+			);
+			name = Animators;
+			sourceTree = "<group>";
+		};
+		9FDBC0D61E1553FF00A35116 /* Presenting */ = {
+			isa = PBXGroup;
+			children = (
+				9FDBC0D31E15521800A35116 /* DetailPresentingAnimator.h */,
+				9FDBC0D41E15521800A35116 /* DetailPresentingAnimator.m */,
+			);
+			name = Presenting;
+			sourceTree = "<group>";
+		};
+		9FDBC0D71E15540C00A35116 /* Dismissing */ = {
+			isa = PBXGroup;
+			children = (
+				9FDBC0D81E15541F00A35116 /* DetailDismissingAnimator.h */,
+				9FDBC0D91E15541F00A35116 /* DetailDismissingAnimator.m */,
+			);
+			name = Dismissing;
 			sourceTree = "<group>";
 		};
 		9FDD08741C4546E6005DB7FB /* Types */ = {
@@ -824,6 +858,7 @@
 				9FD09D871B3C1EBE004B7ABC /* SellBookViewController.m in Sources */,
 				9FD8179A1B469093003984FC /* NotificationCell.m in Sources */,
 				9FC9993E1C0BB73C001D864E /* AFURLRequestSerialization.m in Sources */,
+				9FDBC0D51E15521800A35116 /* DetailPresentingAnimator.m in Sources */,
 				9F6044191C472EA60087C9E4 /* TypeTwoViewController.m in Sources */,
 				9F2830C71B3BBE0000F67237 /* LoginViewController.m in Sources */,
 				9FD43CE31E10FDFB007E8855 /* ChooseCategoryViewController.m in Sources */,
@@ -849,6 +884,7 @@
 				9F5BCEAF1C1A3FAC007941D0 /* DescriptionViewController.m in Sources */,
 				9F61CAB11CD5994900515AEB /* Book.cpp in Sources */,
 				9F8BB7681DAFE5BF00E67A00 /* User.m in Sources */,
+				9FDBC0DA1E15541F00A35116 /* DetailDismissingAnimator.m in Sources */,
 				9FECBECA1CFA1C7400F6D0C7 /* RankFeed.m in Sources */,
 				9FECBEC71CFA1B3E00F6D0C7 /* GeoFeed.m in Sources */,
 				9F2319891B4647910031476F /* NotificationViewController.m in Sources */,

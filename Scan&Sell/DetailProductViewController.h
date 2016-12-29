@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #import "Sale.h"
+#import "FlatButton.h"
 
-@interface DetailProductViewController : UIViewController
+@interface DetailProductViewController : UIViewController<UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) PFObject *productDetails;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
@@ -24,10 +25,12 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activtityInd;
 @property (weak, nonatomic) IBOutlet UITextField *bidPriceTextField;
 @property (weak, nonatomic) IBOutlet UIButton *placeBidButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *closeButton;
 
 - (IBAction)buy:(id)sender;
 - (IBAction)showBookImages:(id)sender;
 - (IBAction)placeBid:(id)sender;
+- (IBAction)close:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIButton *buyButton;
 @end

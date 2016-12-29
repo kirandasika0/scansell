@@ -15,6 +15,8 @@
 #import "Book.h"
 #import "User.h"
 #import "HottestDealViewController.h"
+#import "DetailPresentingAnimator.h"
+#import "DetailDismissingAnimator.h"
 #import <pop/POP.h>
 
 
@@ -106,7 +108,11 @@
             NSLog(@"sdfsd");
             Sale *sale = [self.feedProducts objectAtIndex:indexPath.row];
             self.tappedSale = sale;
-            [self performSegueWithIdentifier:@"showDetailProduct" sender:self];
+            DetailProductViewController *detailProductViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"detailBookView"];
+            detailProductViewController.transitioningDelegate = self;
+            detailProductViewController.modalPresentationStyle = UIModalPresentationCustom;
+            detailProductViewController.sale = self.tappedSale;
+            [self.navigationController presentViewController:detailProductViewController animated:YES completion:nil];
         }
             break;
         case NearbyFeed:
@@ -115,6 +121,22 @@
     }
     
 }
+
+
+
+#pragma mark - UIViewControllerTransitioningDelegate
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
+                                                                  presentingController:(UIViewController *)presenting
+                                                                      sourceController:(UIViewController *)source
+{
+    return [DetailPresentingAnimator new];
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
+{
+    return [DetailDismissingAnimator new];
+}
+
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"showLogin"]) {
@@ -277,9 +299,6 @@
     
     
 }
-
-
-
 
 - (IBAction)logout:(id)sender {
     //we are logging out the user

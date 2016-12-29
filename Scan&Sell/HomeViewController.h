@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Sale.h"
 
-@interface HomeViewController : UITableViewController<UISearchBarDelegate>
+@interface HomeViewController : UITableViewController<UISearchBarDelegate,UIViewControllerTransitioningDelegate>
 
 @property (nonatomic, strong) NSArray *feedProducts;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
