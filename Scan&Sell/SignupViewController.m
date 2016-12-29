@@ -30,6 +30,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(signUpSuccess:) name:kSignUpSuccess object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(signUpFailure:) name:kSignUpFailure object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(locationSuccess:) name:@"locationSuccess" object:nil];
+    
+    self.mobileNumberField.delegate = self;
 }
 
 
@@ -109,5 +111,23 @@
 -(void) signUpFailure:(NSNotification *)notification {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:notification.userInfo[@"error"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
     [alertView show];
+}
+
+-(BOOL) textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    if (textField.text.length >= 5) {
+        [self recolorLoginButton];
+    }
+    else{
+        [self redRecolorLoginButton];
+    }
+    return YES;
+}
+
+-(void)recolorLoginButton{
+    self.signUpButton.backgroundColor = [UIColor colorWithRed:(46.0f/255.0f) green:(204.0f/255.0f) blue:(113.0f/255.0f) alpha:1.0f];
+}
+
+-(void)redRecolorLoginButton{
+    self.signUpButton.backgroundColor = [UIColor colorWithRed:(255.0f/255.0f) green:(59.0f/255.0f) blue:(48.0f/255.0f) alpha:1.0f];
 }
 @end

@@ -7,14 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <Parse/Parse.h>
+#import "FlatButton.h"
 
-@interface SignupViewController : UIViewController
+@interface SignupViewController : UIViewController<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 @property (weak, nonatomic) IBOutlet UITextField *mobileNumberField;
 - (IBAction)signup:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
+@property (weak, nonatomic) IBOutlet FlatButton *signUpButton;
 
 @end

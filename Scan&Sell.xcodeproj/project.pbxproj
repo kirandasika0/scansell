@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05775222F17CBE484546B93D /* Pods_Scan_Sell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1579311758D92441D0257B72 /* Pods_Scan_Sell.framework */; };
 		9F0536AF1E14D72600AA7904 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 9F0536AE1E14D72600AA7904 /* Podfile */; };
 		9F0A10361D0172580078CEA5 /* SelectFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F0A10351D0172580078CEA5 /* SelectFeedViewController.m */; };
 		9F0A3DF21B3D663200EEFE1F /* DetailProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F0A3DF11B3D663200EEFE1F /* DetailProductViewController.m */; };
@@ -71,6 +72,7 @@
 		9FD8179A1B469093003984FC /* NotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD817991B469093003984FC /* NotificationCell.m */; };
 		9FD84F281C0292460036315B /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD84F271C0292460036315B /* Parse.framework */; };
 		9FD84F2A1C02925B0036315B /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD84F291C02925B0036315B /* Bolts.framework */; };
+		9FDBC0D11E14DC3000A35116 /* FlatButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FDBC0D01E14DC3000A35116 /* FlatButton.m */; };
 		9FDD08771C4546FF005DB7FB /* TypeOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FDD08761C4546FF005DB7FB /* TypeOneViewController.m */; };
 		9FDD42011B3CF5F80026FBF8 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FDD42001B3CF5F80026FBF8 /* SignupViewController.m */; };
 		9FECBEC71CFA1B3E00F6D0C7 /* GeoFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FECBEC61CFA1B3E00F6D0C7 /* GeoFeed.m */; };
@@ -90,7 +92,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9F0536AE1E14D72600AA7904 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		1579311758D92441D0257B72 /* Pods_Scan_Sell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Scan_Sell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D16EA0F013F9D0E2FAF8DA4 /* Pods-Scan&Sell.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scan&Sell.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Scan&Sell/Pods-Scan&Sell.debug.xcconfig"; sourceTree = "<group>"; };
+		1D406016E7A63B3DEF678641 /* Pods-Scan&Sell.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scan&Sell.release.xcconfig"; path = "Pods/Target Support Files/Pods-Scan&Sell/Pods-Scan&Sell.release.xcconfig"; sourceTree = "<group>"; };
+		9F0536AE1E14D72600AA7904 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9F0A10341D0172580078CEA5 /* SelectFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectFeedViewController.h; sourceTree = "<group>"; };
 		9F0A10351D0172580078CEA5 /* SelectFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectFeedViewController.m; sourceTree = "<group>"; };
 		9F0A3DF01B3D663200EEFE1F /* DetailProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailProductViewController.h; sourceTree = "<group>"; };
@@ -205,6 +210,8 @@
 		9FD817991B469093003984FC /* NotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationCell.m; sourceTree = "<group>"; };
 		9FD84F271C0292460036315B /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		9FD84F291C02925B0036315B /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		9FDBC0CF1E14DC3000A35116 /* FlatButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatButton.h; sourceTree = "<group>"; };
+		9FDBC0D01E14DC3000A35116 /* FlatButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlatButton.m; sourceTree = "<group>"; };
 		9FDD08751C4546FF005DB7FB /* TypeOneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeOneViewController.h; sourceTree = "<group>"; };
 		9FDD08761C4546FF005DB7FB /* TypeOneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypeOneViewController.m; sourceTree = "<group>"; };
 		9FDD41FF1B3CF5F80026FBF8 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
@@ -238,6 +245,7 @@
 				9F2830B61B3BB8A100F67237 /* StoreKit.framework in Frameworks */,
 				9F2830B71B3BB8A100F67237 /* SystemConfiguration.framework in Frameworks */,
 				9FD84F2A1C02925B0036315B /* Bolts.framework in Frameworks */,
+				05775222F17CBE484546B93D /* Pods_Scan_Sell.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +259,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7549AAD15B8516D4AFD73F97 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1D16EA0F013F9D0E2FAF8DA4 /* Pods-Scan&Sell.debug.xcconfig */,
+				1D406016E7A63B3DEF678641 /* Pods-Scan&Sell.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		9F0A10331D0171E70078CEA5 /* Select feed */ = {
 			isa = PBXGroup;
 			children = (
@@ -292,6 +309,7 @@
 				9F2830991B3BB73A00F67237 /* Scan&SellTests */,
 				9F28307B1B3BB73A00F67237 /* Products */,
 				9F2830BC1B3BB8CB00F67237 /* Frameworks */,
+				7549AAD15B8516D4AFD73F97 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -307,6 +325,7 @@
 		9F28307C1B3BB73A00F67237 /* Scan&Sell */ = {
 			isa = PBXGroup;
 			children = (
+				9FDBC0CD1E14DBF000A35116 /* Controls */,
 				9F99F0AC1DE9405700E5E9CA /* XIBS */,
 				9F8BB7651DAFE45C00E67A00 /* User */,
 				9F160EA91D030F8E00B8E4C2 /* Search */,
@@ -378,6 +397,7 @@
 				9F2830AC1B3BB8A100F67237 /* Security.framework */,
 				9F2830AD1B3BB8A100F67237 /* StoreKit.framework */,
 				9F2830AE1B3BB8A100F67237 /* SystemConfiguration.framework */,
+				1579311758D92441D0257B72 /* Pods_Scan_Sell.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -586,6 +606,23 @@
 			name = "AF Networking";
 			sourceTree = "<group>";
 		};
+		9FDBC0CD1E14DBF000A35116 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				9FDBC0CE1E14DBF600A35116 /* FlatButton */,
+			);
+			name = Controls;
+			sourceTree = "<group>";
+		};
+		9FDBC0CE1E14DBF600A35116 /* FlatButton */ = {
+			isa = PBXGroup;
+			children = (
+				9FDBC0CF1E14DC3000A35116 /* FlatButton.h */,
+				9FDBC0D01E14DC3000A35116 /* FlatButton.m */,
+			);
+			name = FlatButton;
+			sourceTree = "<group>";
+		};
 		9FDD08741C4546E6005DB7FB /* Types */ = {
 			isa = PBXGroup;
 			children = (
@@ -624,9 +661,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9F2830A01B3BB73A00F67237 /* Build configuration list for PBXNativeTarget "Scan&Sell" */;
 			buildPhases = (
+				4275A5A1840F2F43F0FF34F6 /* [CP] Check Pods Manifest.lock */,
 				9F2830761B3BB73A00F67237 /* Sources */,
 				9F2830771B3BB73A00F67237 /* Frameworks */,
 				9F2830781B3BB73A00F67237 /* Resources */,
+				8ED3F6FF0758AB7791597176 /* [CP] Embed Pods Frameworks */,
+				01CD019A2F2AD37E2DFDD4CE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -716,6 +756,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		01CD019A2F2AD37E2DFDD4CE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Scan&Sell/Pods-Scan&Sell-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4275A5A1840F2F43F0FF34F6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8ED3F6FF0758AB7791597176 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Scan&Sell/Pods-Scan&Sell-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9F2830761B3BB73A00F67237 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -755,6 +843,7 @@
 				9FC9993C1C0BB73C001D864E /* AFSecurityPolicy.m in Sources */,
 				9F2830831B3BB73A00F67237 /* AppDelegate.m in Sources */,
 				9FC9993B1C0BB73C001D864E /* AFNetworkReachabilityManager.m in Sources */,
+				9FDBC0D11E14DC3000A35116 /* FlatButton.m in Sources */,
 				9FC999401C0BB73C001D864E /* AFURLSessionManager.m in Sources */,
 				9FDD08771C4546FF005DB7FB /* TypeOneViewController.m in Sources */,
 				9F5BCEAF1C1A3FAC007941D0 /* DescriptionViewController.m in Sources */,
@@ -888,6 +977,7 @@
 		};
 		9F2830A11B3BB73A00F67237 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D16EA0F013F9D0E2FAF8DA4 /* Pods-Scan&Sell.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -909,6 +999,7 @@
 		};
 		9F2830A21B3BB73A00F67237 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D406016E7A63B3DEF678641 /* Pods-Scan&Sell.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

@@ -15,6 +15,7 @@
 #import "Book.h"
 #import "User.h"
 #import "HottestDealViewController.h"
+#import <pop/POP.h>
 
 
 @implementation HomeViewController{
@@ -51,7 +52,7 @@
     [super viewWillAppear:animated];
     
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 280.0;
+    self.tableView.estimatedRowHeight = 400.0;
     
     [self.tabBarController setHidesBottomBarWhenPushed:NO];
     [self.navigationController setNavigationBarHidden:NO animated:NO];
@@ -75,7 +76,8 @@
     Sale *sale = [self.feedProducts objectAtIndex:indexPath.row];
     cell.productNameLabel.text = sale.bookDetails[@"fields"][@"uniform_title"];
     
-    NSString *desciptionString = [NSString stringWithFormat:@"Price: $%@\n\n%@\n\nCommon Locations: %@", sale.price, sale.saleDescription,sale.extraInfo];
+    NSString *distanceLabelString = [NSString stringWithFormat:@"🚕 %.2f mi",[sale haversineMI]];
+    NSString *desciptionString = [NSString stringWithFormat:@"Price: $%@\n\n%@\n\nCommon Locations: %@\n\n%@", sale.price, sale.saleDescription,sale.extraInfo, distanceLabelString];
     
     
     NSMutableAttributedString *attibutedDescriptionString = [[NSMutableAttributedString alloc] initWithString:desciptionString];
@@ -83,35 +85,19 @@
     NSString *bolsString2 = @"Common Locations: ";
     NSRange boldRange = [desciptionString rangeOfString:boldString];
     NSRange boldRange2 = [desciptionString rangeOfString:bolsString2];
+    NSRange boldRange3 = [desciptionString rangeOfString:distanceLabelString];
     [attibutedDescriptionString addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:15.0] range:boldRange];
-    [attibutedDescriptionString addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:15.0] range:boldRange2];
+    [attibutedDescriptionString addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:13.0] range:boldRange2];
+    [attibutedDescriptionString addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:13.0] range:boldRange3];
     [cell.descriptionLabel setAttributedText:attibutedDescriptionString];
-    
-    
-    NSString *distanceLabelString = [NSString stringWithFormat:@"🚕 %.2f mi",[sale haversineMI]];
-    NSMutableAttributedString *disAttributedString = [[NSMutableAttributedString alloc] initWithString:distanceLabelString];
-    NSString *disBoldString = @" mi";
-    NSRange disBoldRange = [distanceLabelString rangeOfString:disBoldString];
-    [disAttributedString addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:13.0] range:disBoldRange];
-    [cell.distanceLabel setAttributedText:disAttributedString];
-    
-    NSURL *coverImageURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://burst.co.in/ss/thumbnails/80x80/%@", sale.imagesNames[0]]];
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    dispatch_async(queue, ^{
-        NSData *imageData = [NSData dataWithContentsOfURL:coverImageURL];
-        if (imageData != nil) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                cell.bookcoverImageView.image = [UIImage imageWithData:imageData];
-            });
-        }
-    });
     
     return  cell;
     
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    //Creating the sale object
+    
+    
     FeedType selectedFeedType = [[[NSUserDefaults standardUserDefaults] objectForKey:@"selected_feed"] integerValue];
     
     switch (selectedFeedType) {
@@ -127,6 +113,7 @@
             NSLog(@"fd");
             break;
     }
+    
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

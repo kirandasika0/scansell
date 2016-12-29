@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FlatButton.h"
 
-@interface LoginViewController : UIViewController
+@interface LoginViewController : UIViewController<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 @property (weak, nonatomic) IBOutlet UIView *backgoundView;
 
 - (IBAction)login:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *errorLabel;
+@property (weak, nonatomic) IBOutlet FlatButton *loginButton;
 
 @end
