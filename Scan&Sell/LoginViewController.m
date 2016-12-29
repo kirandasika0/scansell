@@ -60,14 +60,19 @@
 -(void) loginConfirmation:(NSNotification *)notification {
     //NSDictionary *userInfo = [notification userInfo];
 //    [self.navigationController popToRootViewControllerAnimated:YES];
-    
+    NSLog(@"Login confirmation");
     //Gather user location
     INTULocationManager *locManager = [INTULocationManager sharedInstance];
-    [locManager requestLocationWithDesiredAccuracy:INTULocationAccuracyBlock timeout:10.0 block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
+    [locManager requestLocationWithDesiredAccuracy:INTULocationAccuracyCity timeout:10.0 block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
+        NSLog(@"%ld", (long)status);
         if (status == INTULocationStatusSuccess) {
+            NSLog(@"got location");
             [[User sharedInstance] setGeoPoint:currentLocation.coordinate];
             [self.navigationController popToRootViewControllerAnimated:YES];
         }
+        
+        [[User sharedInstance] setGeoPoint:currentLocation.coordinate];
+        [self.navigationController popToRootViewControllerAnimated:YES];
     }];
 }
 

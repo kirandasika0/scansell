@@ -7,13 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <Parse/Parse.h>
+#import "User.h"
 
 @interface UploadViewController : UIViewController
 @property (nonatomic, strong) NSMutableDictionary *productDetails;
 @property (nonatomic) double latitude;
 @property (nonatomic) double longitude;
-@property (nonatomic, strong) PFUser *currentUser;
 @property (nonatomic, strong) NSString *locationString;
 
 - (IBAction)upload:(id)sender;
@@ -30,4 +29,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *firstCoverImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *backCoverImageView;
 
+
+//Constants
+extern NSString * const kNewSaleEndpoint;
 @end

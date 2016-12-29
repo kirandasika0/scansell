@@ -9,6 +9,7 @@
 #import "DescriptionViewController.h"
 #import "PhotosViewController.h"
 #import "UITextView+Placeholder.h"
+#import "ChooseCategoryViewController.h"
 
 @interface DescriptionViewController ()
 
@@ -52,18 +53,27 @@
 
 - (IBAction)nextTapped:(id)sender {
     //check if the price and the description
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *description = [self.descpTextView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     NSString *price = [self.priceField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    if ([description length] > 10 && [price length] > 0) {
+    NSArray *selectedCategories = [userDefaults objectForKey:@"selected_categories"];
+    if ([description length] > 10 && [price length] > 0 && [selectedCategories count] >= 1) {
         //we can move to the next view of clicking photos
         self.productDetails[@"descp"] = description;
         self.productDetails[@"price"] = price;
+        self.productDetails[@"selected_categories"] = selectedCategories;
+        [userDefaults removeObjectForKey:@"selected_categories"];
+        [userDefaults synchronize];
         [self performSegueWithIdentifier:@"showPhotosView" sender:nil];
     }
     else{
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Oops." message:@"Looks like either did not type a description or did not set a price." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Oops." message:@"Looks like either did not type a description or did not set a price or select the book's category." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alertView show];
     }
+}
+
+- (IBAction)chooseCategories:(id)sender {
+    [self performSegueWithIdentifier:@"showChooseCategories" sender:nil];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -71,6 +81,10 @@
     if ([segue.identifier isEqualToString:@"showPhotosView"]) {
         PhotosViewController *viewController = (PhotosViewController *)segue.destinationViewController;
         viewController.productDetails = self.productDetails;
+    }
+    
+    if ([segue.identifier isEqualToString:@"showChooseCategories"]) {
+        
     }
     
 }

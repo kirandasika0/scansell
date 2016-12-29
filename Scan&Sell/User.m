@@ -144,6 +144,7 @@ NSString * const kGetMySalesEndpoint = @"http://scansell.herokuapp.com/users_b/m
  "loggedInConfirmation" or if failure then sends notification "loginFailure".
  */
 -(void) loginUserWithUsername:(NSString *)usernameIn andPassword:(NSString *)passwordIn {
+    NSLog(@"Login");
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *requestPayload = @{@"username": usernameIn,
                                      @"password": passwordIn

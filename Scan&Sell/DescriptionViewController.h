@@ -22,6 +22,8 @@
 
 //actions
 - (IBAction)nextTapped:(id)sender;
+- (IBAction)chooseCategories:(id)sender;
+
 
 
 @end

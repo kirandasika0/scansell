@@ -9,10 +9,13 @@
 #import "UploadViewController.h"
 #import "AFNetworking.h"
 #import "SAMCache.h"
+#import "INTULocationManager.h"
 
 @interface UploadViewController ()
 
 @end
+
+NSString * const kNewSaleEnpoint = @"https://scansell.herokuapp.com/sale/new_sale/";
 
 @implementation UploadViewController
 
@@ -25,8 +28,6 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    //getting the current user
-    self.currentUser = [PFUser currentUser];
     
     //logging the product details
     NSLog(@"Product Details: %@", self.productDetails);
@@ -70,11 +71,13 @@
             [self.uploadButton setHidden:YES];
         }
     }];
-    [PFGeoPoint geoPointForCurrentLocationInBackground:^(PFGeoPoint * _Nullable geoPoint, NSError * _Nullable error) {
+    
+    INTULocationManager *locManager = [INTULocationManager sharedInstance];
+    [locManager requestLocationWithDesiredAccuracy:INTULocationAccuracyCity timeout:10.0 block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
         //Getting the latitude
-        NSString *latitude = [NSString stringWithFormat:@"%f", geoPoint.latitude];
+        NSString *latitude = [NSString stringWithFormat:@"%f", currentLocation.coordinate.latitude];
         //Getting the logitude
-        NSString *longitude = [NSString stringWithFormat:@"%f", geoPoint.longitude];
+        NSString *longitude = [NSString stringWithFormat:@"%f", currentLocation.coordinate.longitude];
         
         //Starting the data upload script
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -93,38 +96,25 @@
             NSString *frontCoverImageFileName = [NSString stringWithFormat:@"%@.jpg", self.productDetails[@"front_cover_image_key"]];
             NSString *firstCoverImageFileName = [NSString stringWithFormat:@"%@.jpg", self.productDetails[@"first_cover_image_key"]];
             NSString *backCoverImageFileName = [NSString stringWithFormat:@"%@.jpg", self.productDetails[@"back_cover_image_key"]];
-
             
             
-            NSDictionary *parameters = @{@"seller_id": self.currentUser.objectId, @"seller_username": self.currentUser.username,
+            
+            NSDictionary *parameters = @{@"seller_id": [[User sharedInstance] userId], @"seller_username": [[User sharedInstance] username],
                                          @"book_id": @0, @"description": self.productDetails[@"descp"], @"price":self.productDetails[@"price"],
                                          @"barcode_number": self.productDetails[@"barcode_number"],
                                          @"location": location, @"front_cover_image": frontCoverImageFileName,
                                          @"first_cover_image": firstCoverImageFileName, @"back_cover_image": backCoverImageFileName,
                                          @"full_title": self.productDetails[@"product_name"],
                                          @"uniform_title": self.productDetails[@"product_name"],
+                                         @"selected_categories": self.productDetails[@"selected_categories"],
                                          @"latitude": latitude,
                                          @"longitude": longitude};
             
             
             NSLog(@"Main upload dictionary: %@", parameters);
             self.statusInfoLabel.text = @"Uploading Data...";
-            [manager POST:@"https://scansell.herokuapp.com/sale/new_sale/" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                NSLog(@"%@", responseObject);
-                //looks like the product is uploaded sucessfully perfectly we can go back to the feed
-                //hiding the network indicator
-                if ([[UIApplication sharedApplication] isNetworkActivityIndicatorVisible]) {
-                    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-                }
-                
-                //upload pictures
-                //using the upload pictures method
-                [self uploadPhotos];
-                [self uploadThumbnails];
-                
-            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                NSLog(@"%@", error);
-                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Looks like its an error on the server side" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [self uploadDataWithPayload:parameters andCompletionHandler:^(BOOL success) {
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Success" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
                 [alertView show];
             }];
             
@@ -139,7 +129,9 @@
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"%@", error);
         }];
+
     }];
+    
 }
 
 -(NSData *)createThumbnailForImage:(UIImage *)originalImage andForSize:(NSString *)size{
@@ -330,5 +322,27 @@
     }];
     //start operation
     [thumbNailUploadOperation start];
+}
+
+
+
+-(void) uploadDataWithPayload:(NSDictionary *)requestPayload andCompletionHandler:(void(^)(BOOL success))completionHandler{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:kNewSaleEnpoint parameters:requestPayload success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([[UIApplication sharedApplication] isNetworkActivityIndicatorVisible]) {
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        }
+        
+        //upload pictures
+        //using the upload pictures method
+        [self uploadPhotos];
+        [self uploadThumbnails];
+        completionHandler(true);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", operation.responseString);
+        [self uploadPhotos];
+        [self uploadThumbnails];
+        completionHandler(false);
+    }];
 }
 @end

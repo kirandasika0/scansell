@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F0536AF1E14D72600AA7904 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 9F0536AE1E14D72600AA7904 /* Podfile */; };
 		9F0A10361D0172580078CEA5 /* SelectFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F0A10351D0172580078CEA5 /* SelectFeedViewController.m */; };
 		9F0A3DF21B3D663200EEFE1F /* DetailProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F0A3DF11B3D663200EEFE1F /* DetailProductViewController.m */; };
 		9F160EAC1D030FA000B8E4C2 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F160EAB1D030FA000B8E4C2 /* SearchViewController.m */; };
@@ -66,6 +67,7 @@
 		9FC9993F1C0BB73C001D864E /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC999351C0BB73C001D864E /* AFURLResponseSerialization.m */; };
 		9FC999401C0BB73C001D864E /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC999371C0BB73C001D864E /* AFURLSessionManager.m */; };
 		9FD09D871B3C1EBE004B7ABC /* SellBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD09D861B3C1EBE004B7ABC /* SellBookViewController.m */; };
+		9FD43CE31E10FDFB007E8855 /* ChooseCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD43CE21E10FDFB007E8855 /* ChooseCategoryViewController.m */; };
 		9FD8179A1B469093003984FC /* NotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD817991B469093003984FC /* NotificationCell.m */; };
 		9FD84F281C0292460036315B /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD84F271C0292460036315B /* Parse.framework */; };
 		9FD84F2A1C02925B0036315B /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD84F291C02925B0036315B /* Bolts.framework */; };
@@ -88,6 +90,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9F0536AE1E14D72600AA7904 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		9F0A10341D0172580078CEA5 /* SelectFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectFeedViewController.h; sourceTree = "<group>"; };
 		9F0A10351D0172580078CEA5 /* SelectFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectFeedViewController.m; sourceTree = "<group>"; };
 		9F0A3DF01B3D663200EEFE1F /* DetailProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailProductViewController.h; sourceTree = "<group>"; };
@@ -196,6 +199,8 @@
 		9FC999371C0BB73C001D864E /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		9FD09D851B3C1EBE004B7ABC /* SellBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SellBookViewController.h; sourceTree = "<group>"; };
 		9FD09D861B3C1EBE004B7ABC /* SellBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SellBookViewController.m; sourceTree = "<group>"; };
+		9FD43CE11E10FDFB007E8855 /* ChooseCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseCategoryViewController.h; sourceTree = "<group>"; };
+		9FD43CE21E10FDFB007E8855 /* ChooseCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseCategoryViewController.m; sourceTree = "<group>"; };
 		9FD817981B469093003984FC /* NotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationCell.h; sourceTree = "<group>"; };
 		9FD817991B469093003984FC /* NotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationCell.m; sourceTree = "<group>"; };
 		9FD84F271C0292460036315B /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -281,6 +286,7 @@
 		9F2830711B3BB73A00F67237 = {
 			isa = PBXGroup;
 			children = (
+				9F0536AE1E14D72600AA7904 /* Podfile */,
 				9F28307C1B3BB73A00F67237 /* Scan&Sell */,
 				9F4BC95F1B3C618B00AAF29A /* Text View Placeholder */,
 				9F2830991B3BB73A00F67237 /* Scan&SellTests */,
@@ -458,6 +464,8 @@
 			children = (
 				9F5BCEAD1C1A3FAC007941D0 /* DescriptionViewController.h */,
 				9F5BCEAE1C1A3FAC007941D0 /* DescriptionViewController.m */,
+				9FD43CE11E10FDFB007E8855 /* ChooseCategoryViewController.h */,
+				9FD43CE21E10FDFB007E8855 /* ChooseCategoryViewController.m */,
 			);
 			name = Description;
 			sourceTree = "<group>";
@@ -663,6 +671,7 @@
 					};
 					9F2830951B3BB73A00F67237 = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 6754879FL3;
 						TestTargetID = 9F2830791B3BB73A00F67237;
 					};
 				};
@@ -693,6 +702,7 @@
 			files = (
 				9F28308C1B3BB73A00F67237 /* Main.storyboard in Resources */,
 				9F28308E1B3BB73A00F67237 /* Images.xcassets in Resources */,
+				9F0536AF1E14D72600AA7904 /* Podfile in Resources */,
 				9F40150B1DAFE82200A1FEF2 /* UserData.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -728,6 +738,7 @@
 				9FC9993E1C0BB73C001D864E /* AFURLRequestSerialization.m in Sources */,
 				9F6044191C472EA60087C9E4 /* TypeTwoViewController.m in Sources */,
 				9F2830C71B3BBE0000F67237 /* LoginViewController.m in Sources */,
+				9FD43CE31E10FDFB007E8855 /* ChooseCategoryViewController.m in Sources */,
 				9FC9993A1C0BB73C001D864E /* AFHTTPSessionManager.m in Sources */,
 				9F0A10361D0172580078CEA5 /* SelectFeedViewController.m in Sources */,
 				9F9891121C445476001E58A4 /* Notification.m in Sources */,
@@ -920,6 +931,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 6754879FL3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -940,6 +952,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 6754879FL3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

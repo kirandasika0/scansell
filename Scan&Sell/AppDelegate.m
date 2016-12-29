@@ -43,7 +43,7 @@
     
     if ([[User sharedInstance] isActive]) {
         INTULocationManager *locMgr = [INTULocationManager sharedInstance];
-        [locMgr requestLocationWithDesiredAccuracy:INTULocationAccuracyBlock timeout:10.0 block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
+        [locMgr requestLocationWithDesiredAccuracy:INTULocationAccuracyCity timeout:10.0 block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
             if (status == INTULocationStatusSuccess) {
                 // Request succeeded, meaning achievedAccuracy is at least the requested accuracy, and
                 // currentLocation contains the device's current location.
