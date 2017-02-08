@@ -18,7 +18,7 @@
 #import "DetailPresentingAnimator.h"
 #import "DetailDismissingAnimator.h"
 #import <pop/POP.h>
-
+#import "NSDate+NVTimeAgo.h"
 
 @implementation HomeViewController{
     UITableView *autoCompleteTableView;
@@ -48,6 +48,14 @@
         //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchSliderFeed:) name:kInitialLocationConfirmation object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchProductFeed:) name:kInitialLocationConfirmation object:nil];
     }
+    
+    
+    //setting the separator to none and then to line
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    self.ref = [[FIRDatabase database] reference];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateTableView) name:kNewBidReceived object:nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -79,8 +87,19 @@
     cell.productNameLabel.text = sale.bookDetails[@"fields"][@"uniform_title"];
     
     NSString *distanceLabelString = [NSString stringWithFormat:@"🚕 %.2f mi",[sale haversineMI]];
-    NSString *desciptionString = [NSString stringWithFormat:@"Price: $%@\n\n%@\n\nCommon Locations: %@\n\n%@", sale.price, sale.saleDescription,sale.extraInfo, distanceLabelString];
+    NSString *desciptionString;
     
+    if (sale.bidData != nil) {
+        desciptionString = [NSString stringWithFormat:@"Price: $%@\n\n%@\n\nCommon Locations: %@\n\n%@",
+            sale.price,
+            sale.saleDescription,
+            sale.extraInfo,
+            distanceLabelString
+            ];
+    }
+    else{
+        desciptionString = [NSString stringWithFormat:@"Price: $%@\n\n%@\n\nCommon Locations: %@\n\n%@", sale.price, sale.saleDescription,sale.extraInfo, distanceLabelString];
+    }
     
     NSMutableAttributedString *attibutedDescriptionString = [[NSMutableAttributedString alloc] initWithString:desciptionString];
     NSString *boldString = @"Price: ";
@@ -93,8 +112,19 @@
     [attibutedDescriptionString addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:13.0] range:boldRange3];
     [cell.descriptionLabel setAttributedText:attibutedDescriptionString];
     
+    
     return  cell;
     
+}
+
+-(NSArray *)leftUtility{
+    NSMutableArray *leftUtilities = [NSMutableArray new];
+    
+    [leftUtilities sw_addUtilityButtonWithColor:
+     [UIColor colorWithRed:0.07 green:0.75f blue:0.16f alpha:1.0]
+                                                icon:[UIImage imageNamed:@"bid"]];
+    
+    return leftUtilities;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -160,11 +190,13 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"user_id": [[User sharedInstance] userId]};
     [manager GET:@"https://scansell.herokuapp.com/sale/get_feed/" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         NSMutableArray *salesArray = [[NSMutableArray alloc] init];
         //parse the json data here
         for (NSDictionary *product in responseObject[@"response"]) {
             //we are getting each individual product
             Sale *sale = [[Sale alloc] initWithUsername:product[@"seller_username"] andUserId:product[@"seller_id"]];
+            [sale setFirebaseReference:self.ref];
             sale.sellerId = product[@"seller_id"];
             sale.sellerUsename = product[@"seller_username"];
             sale.saleId = product[@"id"];
@@ -172,6 +204,7 @@
             sale.saleDescription = product[@"description"];
             sale.locationString = product[@"location"];
             sale.price = product[@"price"];
+            sale.bidData = nil;
             
             //getting latitude and longitude
             double latitude = [product[@"latitude"] doubleValue];
@@ -189,6 +222,7 @@
                 [imageNames addObject:image[@"fields"][@"image_name"]];
             }
             sale.imagesNames = imageNames;
+            [sale listenForBidUpdates];
             [salesArray addObject:sale];
         }
         //NSLog(@"%@", salesArray);
@@ -284,7 +318,9 @@
 
 
 
-
+-(void) updateTableView{
+    [self.tableView reloadData];
+}
 
 #pragma mark - Sales sort methods
 -(void) sortSalesWithLeft:(int)left andRight:(int)right andSales:(NSArray *)sales{

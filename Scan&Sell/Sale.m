@@ -16,6 +16,8 @@ NSString * const kGetSaleDetailsEndpoint = @"https://scansell.herokuapp.com/sale
 NSString * const kGetSaleImagesEndpoint = @"https://scansell.herokuapp.com/sale/get_sale_images/";
 NSString * const kPlaceBidEndpoint = @"https://scansell.herokuapp.com/sale/place_bid/";
 NSString * const kGetBidStatsEndpoint = @"https://scansell.herokuapp.com/sale/bid_stats/";
+NSString * const kNewBidUpdate = @"new_bid_update";
+NSString * const kNewBidReceived = @"new_bid_received";
 
 @implementation Sale
 {
@@ -45,6 +47,10 @@ NSString * const kGetBidStatsEndpoint = @"https://scansell.herokuapp.com/sale/bi
     }
     
     return self;
+}
+
+-(void) setFirebaseReference:(FIRDatabaseReference *)databaseRefenece{
+    self.ref = databaseRefenece;
 }
 
 -(NSString *)debugDescription{
@@ -175,6 +181,17 @@ NSString * const kGetBidStatsEndpoint = @"https://scansell.herokuapp.com/sale/bi
     [self.bidStructure setObject:self.saleId forKey:[NSString stringWithFormat:@"%d", true]];
     //saving the hash table to the cache
     [userDefaults setObject:self.bidStructure forKey:[[User sharedInstance] bidStructureKey]];
+    return true;
+}
+
+- (BOOL) listenForBidUpdates{
+    NSString *bidCacheKey = [NSString stringWithFormat:@"%@_bid", self.saleId];
+    FIRDatabaseReference *bidRef = [[self.ref child:@"bid"] child:bidCacheKey];
+    [bidRef observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        self.bidData = snapshot.value;
+        NSLog(@"%@", self.bidData);
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNewBidReceived object:nil userInfo:nil];
+    }];
     return true;
 }
 @end

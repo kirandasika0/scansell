@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Sale.h"
+@import Firebase;
 
 @interface HomeViewController : UITableViewController<UISearchBarDelegate,UIViewControllerTransitioningDelegate>
 
@@ -17,6 +18,7 @@
 @property (nonatomic, strong) NSArray *sales;
 @property (nonatomic, strong) Sale *tappedSale;
 @property (weak, nonatomic) IBOutlet UIButton *selectFeedButton;
+@property (nonatomic, strong) FIRDatabaseReference *ref;
 
 typedef NS_ENUM(NSInteger, FeedType) {
     NormalFeed = 0,

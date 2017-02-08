@@ -114,6 +114,7 @@
 }
 
 -(void)fetchNotification{
+    self.navigationItem.title = @"Loading";
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"user_id": [[User sharedInstance] userId]};
     
@@ -137,6 +138,14 @@
             [feedProductArray addObject:notificationObj];
         }
         self.notifications = feedProductArray;
+        
+        if (self.notifications.count > 0) {
+            self.navigationItem.title = [NSString stringWithFormat:@"Notifications(%ld)", self.notifications.count];
+        }
+        else{
+            self.navigationItem.title = @"Notification(0)";
+        }
+        
         [self.tableView reloadData];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

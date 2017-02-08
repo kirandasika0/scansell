@@ -217,6 +217,7 @@ NSString * const kGetMySalesEndpoint = @"http://scansell.herokuapp.com/users_b/m
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         //Failure
+        NSLog(@"%@", operation.responseString);
     }];
 }
 

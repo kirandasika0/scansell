@@ -128,6 +128,9 @@ NSString * const kNewSaleEnpoint = @"https://scansell.herokuapp.com/sale/new_sal
             
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"%@", error);
+            [[SAMCache sharedCache] removeObjectForKey:self.productDetails[@"front_cover_image_key"]];
+            [[SAMCache sharedCache] removeObjectForKey:self.productDetails[@"first_cover_image_key"]];
+            [[SAMCache sharedCache] removeObjectForKey:self.productDetails[@"back_cover_image_key"]];
         }];
 
     }];

@@ -56,8 +56,10 @@
 		9F9891121C445476001E58A4 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F9891111C445476001E58A4 /* Notification.m */; };
 		9F9891151C44B2B3001E58A4 /* BookImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F9891141C44B2B3001E58A4 /* BookImageViewController.m */; };
 		9F9B93B41C3992D300B7802B /* Sale.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F9B93B31C3992D300B7802B /* Sale.m */; };
+		9FB0FB621E37C00300589E16 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9FB0FB611E37C00300589E16 /* GoogleService-Info.plist */; };
 		9FB7410E1CFD691600F00954 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB7410D1CFD691600F00954 /* Book.m */; };
 		9FC8ECEA1C17D2CB00370DDC /* NameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC8ECE91C17D2CB00370DDC /* NameViewController.m */; };
+		9FC9391C1E1CBEAE009DDA27 /* BidViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC9391B1E1CBEAE009DDA27 /* BidViewController.m */; };
 		9FC999381C0BB73C001D864E /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC999261C0BB73C001D864E /* AFHTTPRequestOperation.m */; };
 		9FC999391C0BB73C001D864E /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC999281C0BB73C001D864E /* AFHTTPRequestOperationManager.m */; };
 		9FC9993A1C0BB73C001D864E /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC9992A1C0BB73C001D864E /* AFHTTPSessionManager.m */; };
@@ -181,10 +183,13 @@
 		9F9891141C44B2B3001E58A4 /* BookImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookImageViewController.m; sourceTree = "<group>"; };
 		9F9B93B21C3992D300B7802B /* Sale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sale.h; sourceTree = "<group>"; };
 		9F9B93B31C3992D300B7802B /* Sale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sale.m; sourceTree = "<group>"; };
+		9FB0FB611E37C00300589E16 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9FB7410C1CFD691600F00954 /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
 		9FB7410D1CFD691600F00954 /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
 		9FC8ECE81C17D2CB00370DDC /* NameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameViewController.h; sourceTree = "<group>"; };
 		9FC8ECE91C17D2CB00370DDC /* NameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameViewController.m; sourceTree = "<group>"; };
+		9FC9391A1E1CBEAE009DDA27 /* BidViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BidViewController.h; sourceTree = "<group>"; };
+		9FC9391B1E1CBEAE009DDA27 /* BidViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BidViewController.m; sourceTree = "<group>"; };
 		9FC999251C0BB73C001D864E /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		9FC999261C0BB73C001D864E /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		9FC999271C0BB73C001D864E /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -331,6 +336,7 @@
 		9F28307C1B3BB73A00F67237 /* Scan&Sell */ = {
 			isa = PBXGroup;
 			children = (
+				9FB0FB611E37C00300589E16 /* GoogleService-Info.plist */,
 				9FDBC0CD1E14DBF000A35116 /* Controls */,
 				9F99F0AC1DE9405700E5E9CA /* XIBS */,
 				9F8BB7651DAFE45C00E67A00 /* User */,
@@ -465,6 +471,7 @@
 		9F50EE7E1B3D55E200267351 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				9FC939191E1CBE99009DDA27 /* Bid */,
 				9FDBC0D21E15513300A35116 /* Animators */,
 				9F0A10331D0171E70078CEA5 /* Select feed */,
 				9FB7410B1CFD678B00F00954 /* Geo Feed */,
@@ -585,6 +592,15 @@
 				9FC8ECE91C17D2CB00370DDC /* NameViewController.m */,
 			);
 			name = Name;
+			sourceTree = "<group>";
+		};
+		9FC939191E1CBE99009DDA27 /* Bid */ = {
+			isa = PBXGroup;
+			children = (
+				9FC9391A1E1CBEAE009DDA27 /* BidViewController.h */,
+				9FC9391B1E1CBEAE009DDA27 /* BidViewController.m */,
+			);
+			name = Bid;
 			sourceTree = "<group>";
 		};
 		9FC999241C0BB724001D864E /* AF Networking */ = {
@@ -776,6 +792,7 @@
 			files = (
 				9F28308C1B3BB73A00F67237 /* Main.storyboard in Resources */,
 				9F28308E1B3BB73A00F67237 /* Images.xcassets in Resources */,
+				9FB0FB621E37C00300589E16 /* GoogleService-Info.plist in Resources */,
 				9F0536AF1E14D72600AA7904 /* Podfile in Resources */,
 				9F40150B1DAFE82200A1FEF2 /* UserData.plist in Resources */,
 			);
@@ -896,6 +913,7 @@
 				9FECBECD1CFA1F6600F6D0C7 /* RankFeedWrapper.m in Sources */,
 				9FC9993F1C0BB73C001D864E /* AFURLResponseSerialization.m in Sources */,
 				9F2830C41B3BBA4E00F67237 /* HomeViewController.m in Sources */,
+				9FC9391C1E1CBEAE009DDA27 /* BidViewController.m in Sources */,
 				9F401E911C1FDDFA00140715 /* AAPLCameraViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1026,7 +1044,7 @@
 				INFOPLIST_FILE = "Scan&Sell/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.burst.Scan-Sell";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

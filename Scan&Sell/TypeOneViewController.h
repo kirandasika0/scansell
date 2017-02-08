@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Notification.h"
-#import <Parse/Parse.h>
+#import "User.h"
 
 @interface TypeOneViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *mainLabel;

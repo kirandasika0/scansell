@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 #import <Parse/Parse.h>
+@import Firebase;
 
 @interface Sale : NSObject
 //Properties
@@ -23,6 +24,8 @@
 @property (nonatomic, strong) NSDictionary *bookDetails;
 @property (nonatomic, strong) NSArray *imagesNames;
 @property (nonatomic, strong) NSMutableDictionary *bidStructure;
+@property (nonatomic, strong) FIRDatabaseReference *ref;
+@property (nonatomic, strong) NSDictionary *bidData;
 
 //Methods
 -(id)initWithUsername:(NSString *)username andUserId:(NSString*)userId;
@@ -33,6 +36,8 @@
 -(instancetype)initSaleWithObjectId:(NSString *)objectId;
 -(void) placeBidWithBiddingPrice:(NSInteger)bidPrice andWithCompletionHandler:(void(^)(BOOL success))completionHandler;
 -(void) getBidStatsWithCompletionHandler:(void(^)(BOOL success,NSDictionary *responseDictionary))completionHandler;
+-(void) setFirebaseReference:(FIRDatabaseReference *)databaseRefenece;
+- (BOOL) listenForBidUpdates;
 
 //Class Methods
 +(void) getSaleImagesWithId:(NSString *)saleIdIn andWithCompletionHandler:(void(^)(NSArray *images, BOOL success))completionHandler;
@@ -42,4 +47,6 @@ extern NSString * const kGetSaleDetailsEndpoint;
 extern NSString * const kGetSaleImagesEndpoint;
 extern NSString * const kPlaceBidEndpoint;
 extern NSString * const kGetBidStatsEndpoint;
+extern NSString * const kNewBidUpdate;
+extern NSString * const kNewBidReceived;
 @end

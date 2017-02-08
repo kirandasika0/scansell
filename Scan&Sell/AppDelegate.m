@@ -12,6 +12,7 @@
 #import "INTULocationManager.h"
 #import "AFNetworking.h"
 #import "User.h"
+@import Firebase;
 @interface AppDelegate ()
 
 @end
@@ -26,7 +27,8 @@
     
     //[GeoFeed setFeedType:@"1"];
     
-    
+    //Configuring firebase
+    [FIRApp configure];
     
     //Get the user's cuurent location
     //[self getLocation];

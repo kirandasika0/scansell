@@ -14,7 +14,7 @@
 @end
 
 @implementation TypeOneViewController{
-    PFUser *currentUser;
+    User *currentUser;
 }
 
 - (void)viewDidLoad {
@@ -27,7 +27,7 @@
     NSString *mainLabelString = [NSString stringWithFormat:@"%@\n\nBy Clicking comfirm in the below. You will exchange contact information with the buyer(like phone number, your name) for him to contact you.", self.notification.notifData[@"notification_string"]];
     self.mainLabel.text = mainLabelString;
     
-    currentUser = [PFUser currentUser];
+    currentUser = [User sharedInstance];
 }
 
 -(void)showAlertViewWithTitle:(NSString *)title andMessage:(NSString *)message{
@@ -40,7 +40,7 @@
 - (IBAction)confirm:(id)sender {
     //looks like the seller wants to proceed with the sale.
     //creating notif type 2
-    NSDictionary *notifType2Dict = @{@"notif_type": @2, @"seller_id":  currentUser.objectId, @"seller_username": currentUser.username, @"buyer_id": self.notification.notifData[@"buyer_id"], @"buyer_username": self.notification.notifData[@"buyer_username"], @"notif_1_id": self.notification.notificationId, @"sale_id": self.notification.saleId};
+    NSDictionary *notifType2Dict = @{@"notif_type": @2, @"seller_id":  currentUser.userId, @"seller_username": currentUser.username, @"buyer_id": self.notification.notifData[@"buyer_id"], @"buyer_username": self.notification.notifData[@"buyer_username"], @"notif_1_id": self.notification.notificationId, @"sale_id": self.notification.saleId};
     NSLog(@"%@", notifType2Dict);
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];

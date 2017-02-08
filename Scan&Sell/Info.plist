@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>Its a default setting for the iPhone</string>
-	<key>NSCameraUsageDescription</key>
-	<string>Camera is used to scan barcoes of book that you provide.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -25,7 +21,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>2</string>
 	<key>LSApplicationCategoryType</key>
 	<array>
 		<string></string>
@@ -37,8 +33,12 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Camera is used to scan barcoes of book that you provide.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We want to use your location becase we want to show you relvant books in your feed to make user experience better. Please click &quot;Allow&quot; button below...</string>
+	<string>We want to use your location becase we want to show you relvant books in your feed to make user experience better. Please click "Allow" button below...</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Its a default setting for the iPhone</string>
 	<key>UIApplicationShortcutItems</key>
 	<array>
 		<dict>
