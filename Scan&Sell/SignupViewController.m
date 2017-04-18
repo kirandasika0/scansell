@@ -69,7 +69,7 @@
         
         self.locationLabel.text = @"locating you...";
         INTULocationManager *locManager = [INTULocationManager sharedInstance];
-        [locManager requestLocationWithDesiredAccuracy:INTULocationAccuracyCity timeout:10.0 block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
+        [locManager requestLocationWithDesiredAccuracy:INTULocationAccuracyBlock timeout:10.0 block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
             if (status == INTULocationStatusSuccess) {
                 //Location accuracy achieved
                 requestPayload[@"latitude"] = [NSString stringWithFormat:@"%f", currentLocation.coordinate.latitude];

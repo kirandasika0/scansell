@@ -331,6 +331,7 @@ NSString * const kNewSaleEnpoint = @"https://scansell.herokuapp.com/sale/new_sal
 
 -(void) uploadDataWithPayload:(NSDictionary *)requestPayload andCompletionHandler:(void(^)(BOOL success))completionHandler{
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
     [manager POST:kNewSaleEnpoint parameters:requestPayload success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([[UIApplication sharedApplication] isNetworkActivityIndicatorVisible]) {
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
@@ -347,5 +348,7 @@ NSString * const kNewSaleEnpoint = @"https://scansell.herokuapp.com/sale/new_sal
         [self uploadThumbnails];
         completionHandler(false);
     }];
+    
+    
 }
 @end

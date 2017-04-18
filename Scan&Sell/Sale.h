@@ -38,6 +38,7 @@
 -(void) getBidStatsWithCompletionHandler:(void(^)(BOOL success,NSDictionary *responseDictionary))completionHandler;
 -(void) setFirebaseReference:(FIRDatabaseReference *)databaseRefenece;
 - (BOOL) listenForBidUpdates;
+- (void) getProductsAlikeFromServer:(void(^)(BOOL success, NSDictionary* responseDictionary))completionHandler;
 
 //Class Methods
 +(void) getSaleImagesWithId:(NSString *)saleIdIn andWithCompletionHandler:(void(^)(NSArray *images, BOOL success))completionHandler;
@@ -49,4 +50,5 @@ extern NSString * const kPlaceBidEndpoint;
 extern NSString * const kGetBidStatsEndpoint;
 extern NSString * const kNewBidUpdate;
 extern NSString * const kNewBidReceived;
+extern NSString * const kGetAlikeProducts;
 @end

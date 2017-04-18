@@ -18,6 +18,7 @@ NSString * const kPlaceBidEndpoint = @"https://scansell.herokuapp.com/sale/place
 NSString * const kGetBidStatsEndpoint = @"https://scansell.herokuapp.com/sale/bid_stats/";
 NSString * const kNewBidUpdate = @"new_bid_update";
 NSString * const kNewBidReceived = @"new_bid_received";
+NSString * const kGetAlikeProducts = @"https://scanseel.herokuapp.com/sale/alike/";
 
 @implementation Sale
 {
@@ -193,5 +194,23 @@ NSString * const kNewBidReceived = @"new_bid_received";
         [[NSNotificationCenter defaultCenter] postNotificationName:kNewBidReceived object:nil userInfo:nil];
     }];
     return true;
+}
+
+
+
+- (void) getProductsAlikeFromServer:(void(^)(BOOL success, NSDictionary* responseDictionary))completionHandler {
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *payloadDict = @{@"user_id": [[User sharedInstance] userId],
+                                  @"current_sale": self.saleId,
+                                  @"latitude": [NSString stringWithFormat:@"%f", [[User sharedInstance] geoPoint].latitude],
+                                  @"longitude": [NSString stringWithFormat:@"%f", [[User sharedInstance] geoPoint].longitude]
+                                  };
+    [manager POST:kGetAlikeProducts parameters:payloadDict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        completionHandler(true, responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", operation.responseString);
+        NSLog(@"There was error");
+        completionHandler(false, nil);
+    }];
 }
 @end
