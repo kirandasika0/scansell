@@ -346,7 +346,6 @@
 		9F28307C1B3BB73A00F67237 /* Scan&Sell */ = {
 			isa = PBXGroup;
 			children = (
-				9F65677B1FC79C5E003D17BE /* Proto */,
 				9FEB82C71EE8B73200773AAC /* Chat */,
 				9FDBC0CD1E14DBF000A35116 /* Controls */,
 				9F99F0AC1DE9405700E5E9CA /* XIBS */,
@@ -370,6 +369,8 @@
 				9F2830C61B3BBE0000F67237 /* LoginViewController.m */,
 				9FDD41FF1B3CF5F80026FBF8 /* SignupViewController.h */,
 				9FDD42001B3CF5F80026FBF8 /* SignupViewController.m */,
+				9F65677D1FC79C82003D17BE /* Feed.pbobjc.h */,
+				9F65677C1FC79C82003D17BE /* Feed.pbobjc.m */,
 				9F40150A1DAFE82200A1FEF2 /* UserData.plist */,
 			);
 			path = "Scan&Sell";
@@ -527,15 +528,6 @@
 				9F401E941C1FDEEF00140715 /* PhotoViewCell.m */,
 			);
 			name = Photos;
-			sourceTree = "<group>";
-		};
-		9F65677B1FC79C5E003D17BE /* Proto */ = {
-			isa = PBXGroup;
-			children = (
-				9F65677D1FC79C82003D17BE /* Feed.pbobjc.h */,
-				9F65677C1FC79C82003D17BE /* Feed.pbobjc.m */,
-			);
-			path = Proto;
 			sourceTree = "<group>";
 		};
 		9F86DAFF1C1BDBA4004508DE /* UIImageEffects */ = {
