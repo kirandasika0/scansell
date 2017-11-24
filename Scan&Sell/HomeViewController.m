@@ -20,6 +20,7 @@
 #import <pop/POP.h>
 #import "NSDate+NVTimeAgo.h"
 #import <StoreKit/StoreKit.h>
+#import "Proto/Feed.pbobjc.h"
 
 @implementation HomeViewController{
     UITableView *autoCompleteTableView;

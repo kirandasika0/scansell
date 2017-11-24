@@ -12,6 +12,7 @@
 #import "INTULocationManager.h"
 #import "AFNetworking.h"
 #import "User.h"
+
 @import Firebase;
 @interface AppDelegate ()
 
