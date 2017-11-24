@@ -7,6 +7,7 @@
 //
 
 #import "TypeTwoViewController.h"
+#import "ChatViewController.h"
 
 @interface TypeTwoViewController ()
 
@@ -44,12 +45,14 @@
 }
 
 - (IBAction)sendMessage:(id)sender {
-    NSURL *messageURL = [NSURL URLWithString:[NSString stringWithFormat:@"sms:%@", self.notification.notifData[@"user_data"][@"fields"][@"mobile_number"]]];
-    UIPasteboard *pasteBoard = [UIPasteboard generalPasteboard];
-    pasteBoard.string = [NSString stringWithFormat:@"Dear %@,\nI am interested in your product. I want to  go ahead with the sale and purchase this product from you.\n%@",self.notification.notifData[@"user_data"][@"fields"][@"username"], [[User sharedInstance] username]];
-    
-    if ([[UIApplication sharedApplication] canOpenURL:messageURL]) {
-        [[UIApplication sharedApplication] openURL:messageURL];
+    //Pushing new chat view controller
+    [self performSegueWithIdentifier:@"showChatView" sender:self];
+}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"showChatView"]) {
+        ChatViewController *chatVC = (ChatViewController *)segue.destinationViewController;
+        chatVC.notification = self.notification;
     }
 }
 @end

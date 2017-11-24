@@ -75,12 +75,13 @@
             
             NSLog(@"%@", response);
             if ([response[@"0"][@"productname"] isEqualToString:@" "]) {
-                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"We're sorry." message:@"Looks like this barcode isn't registered on our servers. So please type in the book's name as it appears on the front cover.\n-Kiran(Founder)" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"We're sorry." message:@"Looks like this barcode isn't registered on our servers. So please type in the book's name as it appears on the front cover." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
                 [alertView show];
             }
             if (!self.productDetails[@"product_name"]) {
                 //self.productNameField.text = response[@"0"][@"productname"];
-                BOOL hasProductName = [response[@"0"][@"productname"] isEqualToString:@" "] == FALSE ? TRUE : FALSE;
+                //BOOL hasProductName = [response[@"0"][@"productname"] isEqualToString:@" "] == FALSE ? TRUE : FALSE;
+                BOOL hasProductName = [response[@"0"][@"productname"] length] < 2 ? TRUE : FALSE;
                 if (hasProductName) {
                     self.productNameField.text = response[@"0"][@"productname"];
                 }
@@ -92,19 +93,6 @@
             //hiding the network indicator
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
             
-            
-//            NSURL *imageURL = [NSURL URLWithString:response[@"0"][@"imageurl"]];
-//            //loading the picture
-//            dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-//            dispatch_async(queue, ^{
-//                NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
-//                if (imageData != nil) {
-//                    dispatch_async(dispatch_get_main_queue(), ^{
-//                        UIImage *productImage = [UIImage imageWithData:imageData];
-//                        //self.backgroundImageView.image = productImage;
-//                    });
-//                }
-//            });
         }
         else{
             NSLog(@"Looks like response did not come back.");

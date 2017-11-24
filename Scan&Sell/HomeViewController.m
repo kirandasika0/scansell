@@ -19,6 +19,7 @@
 #import "DetailDismissingAnimator.h"
 #import <pop/POP.h>
 #import "NSDate+NVTimeAgo.h"
+#import <StoreKit/StoreKit.h>
 
 @implementation HomeViewController{
     UITableView *autoCompleteTableView;
@@ -27,15 +28,6 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     
-//    self.currentUser = [PFUser currentUser];
-//    [self performSegueWithIdentifier:@"showLogin" sender:self];
-//    if (!self.currentUser) {
-//        [self performSegueWithIdentifier:@"showLogin" sender:self];
-//    }
-//    else{
-//        NSLog(@"Logged in.");
-//    }
-//    
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:nil action:@selector(fetchProductFeed:) forControlEvents:UIControlEventValueChanged];
     
@@ -46,6 +38,8 @@
         NSLog(@"%@", [[User sharedInstance] username]);
         //[self fetchProductFeed];
         //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchSliderFeed:) name:kInitialLocationConfirmation object:nil];
+        
+        
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchProductFeed:) name:kInitialLocationConfirmation object:nil];
     }
     
@@ -56,6 +50,7 @@
     self.ref = [[FIRDatabase database] reference];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateTableView) name:kNewBidReceived object:nil];
+    [self askForReview];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -288,15 +283,6 @@
               objectAtIndex:2] setBadgeValue:nil];
         }
         
-        //Go and get the hottest deals
-//        [[User sharedInstance] getHottestDealWithCompletionHandler:^(Sale *hottestSale, BOOL success) {
-//            if (success == true) {
-//                HottestDealViewController *hdViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"hottestDeals"];
-//                hdViewController.hottestSale = hottestSale;
-//                [self presentViewController:hdViewController animated:YES completion:nil];
-//            }
-//        }];
-        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%@", operation.responseString);
         if (error) {
@@ -306,17 +292,9 @@
     }];
 }
 
-
-//-(void) fetchSliderFeed:(NSNotification *)notification {
-//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-//    NSDictionary *requestPayload = @{@"user_id": [[User sharedInstance] userId],
-//                                     @"latitude": [NSString stringWithFormat:@"%f", [[User sharedInstance] geoPoint].latitude],
-//                                     @"longitude": [NSString stringWithFormat:@"%f", [[User sharedInstance] geoPoint].longitude]};
-//    
-//    
-//}
-
-
+-(void)fetchProtoFeed:(NSNotification *)notification {
+    // New feed processing for protobufs
+}
 
 -(void) updateTableView{
     [self.tableView reloadData];
@@ -334,6 +312,29 @@
     [self sortSalesWithLeft:(mid + 1) andRight:right andSales:sales];
     
     
+}
+
+
+
+- (void) askForReview {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSDate *today = [NSDate date];
+    if ([userDefaults objectForKey:@"com.quicksell.extra.askForReview"] != nil) {
+        if ([today compare:[userDefaults objectForKey:@"com.quicksell.extra.askForReview"]] == NSOrderedSame) {
+            return;
+        }
+        else {
+            //Ask for product review
+            [userDefaults setObject:[NSDate date] forKey:@"com.quicksell.extra.askForReview"];
+            [userDefaults synchronize];
+        }
+    }
+    else {
+        //ask for product review
+        [userDefaults setObject:[NSDate date] forKey:@"com.quicksell.extra.askForReview"];
+        [userDefaults synchronize];
+        [SKStoreReviewController requestReview];
+    }
 }
 
 - (IBAction)logout:(id)sender {

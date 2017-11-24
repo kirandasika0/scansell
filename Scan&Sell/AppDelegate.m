@@ -30,6 +30,11 @@
     //Configuring firebase
     [FIRApp configure];
     
+    
+    //Setting up the database with shark orm
+    [SharkORM setDelegate:self];
+    [SharkORM openDatabaseNamed:@"quicksell"];
+    
     //Get the user's cuurent location
     //[self getLocation];
     

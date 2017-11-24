@@ -49,15 +49,18 @@
 		9F5BCEAF1C1A3FAC007941D0 /* DescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5BCEAE1C1A3FAC007941D0 /* DescriptionViewController.m */; };
 		9F6044191C472EA60087C9E4 /* TypeTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F6044181C472EA60087C9E4 /* TypeTwoViewController.m */; };
 		9F61CAB11CD5994900515AEB /* Book.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F61CAAF1CD5994900515AEB /* Book.cpp */; };
+		9F65677E1FC79C82003D17BE /* Feed.pbobjc.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F65677C1FC79C82003D17BE /* Feed.pbobjc.m */; };
 		9F71CDFD1DCD369D00438A8D /* HottestDealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F71CDFC1DCD369D00438A8D /* HottestDealViewController.m */; };
 		9F86DB061C1BE82D004508DE /* SAMCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F86DB051C1BE82D004508DE /* SAMCache.m */; };
 		9F86DB091C1BEBD3004508DE /* PhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F86DB081C1BEBD3004508DE /* PhotosViewController.m */; };
 		9F8BB7681DAFE5BF00E67A00 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F8BB7671DAFE5BF00E67A00 /* User.m */; };
+		9F8C44281EE8BF9C00A40CD6 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F8C44271EE8BF9C00A40CD6 /* ChatViewController.m */; };
+		9F8C442B1EE8D73600A40CD6 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F8C442A1EE8D73600A40CD6 /* Message.m */; };
 		9F9891121C445476001E58A4 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F9891111C445476001E58A4 /* Notification.m */; };
 		9F9891151C44B2B3001E58A4 /* BookImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F9891141C44B2B3001E58A4 /* BookImageViewController.m */; };
 		9F9B93B41C3992D300B7802B /* Sale.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F9B93B31C3992D300B7802B /* Sale.m */; };
-		9FB0FB621E37C00300589E16 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9FB0FB611E37C00300589E16 /* GoogleService-Info.plist */; };
 		9FB7410E1CFD691600F00954 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB7410D1CFD691600F00954 /* Book.m */; };
+		9FC72AA61EE8B0B10012F6C4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9FC72AA51EE8B0B10012F6C4 /* GoogleService-Info.plist */; };
 		9FC8ECEA1C17D2CB00370DDC /* NameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC8ECE91C17D2CB00370DDC /* NameViewController.m */; };
 		9FC9391C1E1CBEAE009DDA27 /* BidViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC9391B1E1CBEAE009DDA27 /* BidViewController.m */; };
 		9FC999381C0BB73C001D864E /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC999261C0BB73C001D864E /* AFHTTPRequestOperation.m */; };
@@ -169,6 +172,8 @@
 		9F6044181C472EA60087C9E4 /* TypeTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypeTwoViewController.m; sourceTree = "<group>"; };
 		9F61CAAF1CD5994900515AEB /* Book.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Book.cpp; sourceTree = "<group>"; };
 		9F61CAB01CD5994900515AEB /* Book.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Book.hpp; sourceTree = "<group>"; };
+		9F65677C1FC79C82003D17BE /* Feed.pbobjc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Feed.pbobjc.m; sourceTree = "<group>"; };
+		9F65677D1FC79C82003D17BE /* Feed.pbobjc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Feed.pbobjc.h; sourceTree = "<group>"; };
 		9F71CDFB1DCD369D00438A8D /* HottestDealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HottestDealViewController.h; sourceTree = "<group>"; };
 		9F71CDFC1DCD369D00438A8D /* HottestDealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HottestDealViewController.m; sourceTree = "<group>"; };
 		9F86DB041C1BE82D004508DE /* SAMCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMCache.h; sourceTree = "<group>"; };
@@ -177,15 +182,19 @@
 		9F86DB081C1BEBD3004508DE /* PhotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosViewController.m; sourceTree = "<group>"; };
 		9F8BB7661DAFE5BF00E67A00 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		9F8BB7671DAFE5BF00E67A00 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		9F8C44261EE8BF9C00A40CD6 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		9F8C44271EE8BF9C00A40CD6 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		9F8C44291EE8D73600A40CD6 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		9F8C442A1EE8D73600A40CD6 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
 		9F9891101C445476001E58A4 /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
 		9F9891111C445476001E58A4 /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
 		9F9891131C44B2B3001E58A4 /* BookImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookImageViewController.h; sourceTree = "<group>"; };
 		9F9891141C44B2B3001E58A4 /* BookImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookImageViewController.m; sourceTree = "<group>"; };
 		9F9B93B21C3992D300B7802B /* Sale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sale.h; sourceTree = "<group>"; };
 		9F9B93B31C3992D300B7802B /* Sale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sale.m; sourceTree = "<group>"; };
-		9FB0FB611E37C00300589E16 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9FB7410C1CFD691600F00954 /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
 		9FB7410D1CFD691600F00954 /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
+		9FC72AA51EE8B0B10012F6C4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9FC8ECE81C17D2CB00370DDC /* NameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameViewController.h; sourceTree = "<group>"; };
 		9FC8ECE91C17D2CB00370DDC /* NameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameViewController.m; sourceTree = "<group>"; };
 		9FC9391A1E1CBEAE009DDA27 /* BidViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BidViewController.h; sourceTree = "<group>"; };
@@ -314,6 +323,7 @@
 		9F2830711B3BB73A00F67237 = {
 			isa = PBXGroup;
 			children = (
+				9FC72AA51EE8B0B10012F6C4 /* GoogleService-Info.plist */,
 				9F0536AE1E14D72600AA7904 /* Podfile */,
 				9F28307C1B3BB73A00F67237 /* Scan&Sell */,
 				9F4BC95F1B3C618B00AAF29A /* Text View Placeholder */,
@@ -336,7 +346,8 @@
 		9F28307C1B3BB73A00F67237 /* Scan&Sell */ = {
 			isa = PBXGroup;
 			children = (
-				9FB0FB611E37C00300589E16 /* GoogleService-Info.plist */,
+				9F65677B1FC79C5E003D17BE /* Proto */,
+				9FEB82C71EE8B73200773AAC /* Chat */,
 				9FDBC0CD1E14DBF000A35116 /* Controls */,
 				9F99F0AC1DE9405700E5E9CA /* XIBS */,
 				9F8BB7651DAFE45C00E67A00 /* User */,
@@ -518,6 +529,15 @@
 			name = Photos;
 			sourceTree = "<group>";
 		};
+		9F65677B1FC79C5E003D17BE /* Proto */ = {
+			isa = PBXGroup;
+			children = (
+				9F65677D1FC79C82003D17BE /* Feed.pbobjc.h */,
+				9F65677C1FC79C82003D17BE /* Feed.pbobjc.m */,
+			);
+			path = Proto;
+			sourceTree = "<group>";
+		};
 		9F86DAFF1C1BDBA4004508DE /* UIImageEffects */ = {
 			isa = PBXGroup;
 			children = (
@@ -541,6 +561,15 @@
 				9F8BB7671DAFE5BF00E67A00 /* User.m */,
 			);
 			name = User;
+			sourceTree = "<group>";
+		};
+		9F8C442C1EE8D73B00A40CD6 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				9F8C44291EE8D73600A40CD6 /* Message.h */,
+				9F8C442A1EE8D73600A40CD6 /* Message.m */,
+			);
+			name = Message;
 			sourceTree = "<group>";
 		};
 		9F99F0AC1DE9405700E5E9CA /* XIBS */ = {
@@ -684,6 +713,16 @@
 			name = Types;
 			sourceTree = "<group>";
 		};
+		9FEB82C71EE8B73200773AAC /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				9F8C442C1EE8D73B00A40CD6 /* Message */,
+				9F8C44261EE8BF9C00A40CD6 /* ChatViewController.h */,
+				9F8C44271EE8BF9C00A40CD6 /* ChatViewController.m */,
+			);
+			name = Chat;
+			sourceTree = "<group>";
+		};
 		9FECBECE1CFA1F8E00F6D0C7 /* Rank Feed */ = {
 			isa = PBXGroup;
 			children = (
@@ -792,7 +831,7 @@
 			files = (
 				9F28308C1B3BB73A00F67237 /* Main.storyboard in Resources */,
 				9F28308E1B3BB73A00F67237 /* Images.xcassets in Resources */,
-				9FB0FB621E37C00300589E16 /* GoogleService-Info.plist in Resources */,
+				9FC72AA61EE8B0B10012F6C4 /* GoogleService-Info.plist in Resources */,
 				9F0536AF1E14D72600AA7904 /* Podfile in Resources */,
 				9F40150B1DAFE82200A1FEF2 /* UserData.plist in Resources */,
 			);
@@ -829,13 +868,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Scan&Sell-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8ED3F6FF0758AB7791597176 /* [CP] Embed Pods Frameworks */ = {
@@ -844,9 +886,26 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Scan&Sell/Pods-Scan&Sell-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DateTools/DateTools.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SWTableViewCell/SWTableViewCell.framework",
+				"${BUILT_PRODUCTS_DIR}/SharkORM/SharkORM.framework",
+				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DateTools.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SWTableViewCell.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SharkORM.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -874,6 +933,7 @@
 				9FC9993D1C0BB73C001D864E /* AFURLConnectionOperation.m in Sources */,
 				9FD09D871B3C1EBE004B7ABC /* SellBookViewController.m in Sources */,
 				9FD8179A1B469093003984FC /* NotificationCell.m in Sources */,
+				9F65677E1FC79C82003D17BE /* Feed.pbobjc.m in Sources */,
 				9FC9993E1C0BB73C001D864E /* AFURLRequestSerialization.m in Sources */,
 				9FDBC0D51E15521800A35116 /* DetailPresentingAnimator.m in Sources */,
 				9F6044191C472EA60087C9E4 /* TypeTwoViewController.m in Sources */,
@@ -888,6 +948,7 @@
 				9F401E951C1FDEEF00140715 /* PhotoViewCell.m in Sources */,
 				9F71CDFD1DCD369D00438A8D /* HottestDealViewController.m in Sources */,
 				9F2B43E61CF4697F00D7D2DC /* GeoSale.m in Sources */,
+				9F8C442B1EE8D73600A40CD6 /* Message.m in Sources */,
 				9F337DC31C6D65E2002F2CBC /* NSDate+NVTimeAgo.m in Sources */,
 				9FC8ECEA1C17D2CB00370DDC /* NameViewController.m in Sources */,
 				9F2DDC091C07A24B0006A5F6 /* SearchBookViewController.m in Sources */,
@@ -914,6 +975,7 @@
 				9FC9993F1C0BB73C001D864E /* AFURLResponseSerialization.m in Sources */,
 				9F2830C41B3BBA4E00F67237 /* HomeViewController.m in Sources */,
 				9FC9391C1E1CBEAE009DDA27 /* BidViewController.m in Sources */,
+				9F8C44281EE8BF9C00A40CD6 /* ChatViewController.m in Sources */,
 				9F401E911C1FDDFA00140715 /* AAPLCameraViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

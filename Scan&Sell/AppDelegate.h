@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+#import <SharkORM/SharkORM.h>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, SRKDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

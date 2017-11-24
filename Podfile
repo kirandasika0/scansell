@@ -7,4 +7,7 @@ target "Scan&Sell" do
     pod 'Firebase/Database'
     pod 'DateTools'
     pod 'SWTableViewCell', '~> 0.3.7'
+    pod 'SharkORM'
+    pod 'JSQMessagesViewController'
+    pod 'Protobuf', '~> 3.5'
 end
