@@ -49,7 +49,6 @@
 		9F5BCEAF1C1A3FAC007941D0 /* DescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5BCEAE1C1A3FAC007941D0 /* DescriptionViewController.m */; };
 		9F6044191C472EA60087C9E4 /* TypeTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F6044181C472EA60087C9E4 /* TypeTwoViewController.m */; };
 		9F61CAB11CD5994900515AEB /* Book.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F61CAAF1CD5994900515AEB /* Book.cpp */; };
-		9F65677E1FC79C82003D17BE /* Feed.pbobjc.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F65677C1FC79C82003D17BE /* Feed.pbobjc.m */; };
 		9F71CDFD1DCD369D00438A8D /* HottestDealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F71CDFC1DCD369D00438A8D /* HottestDealViewController.m */; };
 		9F86DB061C1BE82D004508DE /* SAMCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F86DB051C1BE82D004508DE /* SAMCache.m */; };
 		9F86DB091C1BEBD3004508DE /* PhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F86DB081C1BEBD3004508DE /* PhotosViewController.m */; };
@@ -172,8 +171,6 @@
 		9F6044181C472EA60087C9E4 /* TypeTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypeTwoViewController.m; sourceTree = "<group>"; };
 		9F61CAAF1CD5994900515AEB /* Book.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Book.cpp; sourceTree = "<group>"; };
 		9F61CAB01CD5994900515AEB /* Book.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Book.hpp; sourceTree = "<group>"; };
-		9F65677C1FC79C82003D17BE /* Feed.pbobjc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Feed.pbobjc.m; sourceTree = "<group>"; };
-		9F65677D1FC79C82003D17BE /* Feed.pbobjc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Feed.pbobjc.h; sourceTree = "<group>"; };
 		9F71CDFB1DCD369D00438A8D /* HottestDealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HottestDealViewController.h; sourceTree = "<group>"; };
 		9F71CDFC1DCD369D00438A8D /* HottestDealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HottestDealViewController.m; sourceTree = "<group>"; };
 		9F86DB041C1BE82D004508DE /* SAMCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMCache.h; sourceTree = "<group>"; };
@@ -369,8 +366,6 @@
 				9F2830C61B3BBE0000F67237 /* LoginViewController.m */,
 				9FDD41FF1B3CF5F80026FBF8 /* SignupViewController.h */,
 				9FDD42001B3CF5F80026FBF8 /* SignupViewController.m */,
-				9F65677D1FC79C82003D17BE /* Feed.pbobjc.h */,
-				9F65677C1FC79C82003D17BE /* Feed.pbobjc.m */,
 				9F40150A1DAFE82200A1FEF2 /* UserData.plist */,
 			);
 			path = "Scan&Sell";
@@ -925,7 +920,6 @@
 				9FC9993D1C0BB73C001D864E /* AFURLConnectionOperation.m in Sources */,
 				9FD09D871B3C1EBE004B7ABC /* SellBookViewController.m in Sources */,
 				9FD8179A1B469093003984FC /* NotificationCell.m in Sources */,
-				9F65677E1FC79C82003D17BE /* Feed.pbobjc.m in Sources */,
 				9FC9993E1C0BB73C001D864E /* AFURLRequestSerialization.m in Sources */,
 				9FDBC0D51E15521800A35116 /* DetailPresentingAnimator.m in Sources */,
 				9F6044191C472EA60087C9E4 /* TypeTwoViewController.m in Sources */,
